@@ -5,6 +5,7 @@ import { colors } from "../constants";
 
 export function Result({ navigation, route }) {
   const { imc } = route.params;
+  const { message } = route.params;
 
   return (
     <View style={styles.container}>
@@ -12,6 +13,11 @@ export function Result({ navigation, route }) {
         <View style={styles.imcWrapper}>
           <Text style={styles.imcText}>IMC</Text>
           <Text style={styles.imcText}>{imc.toFixed(2)}</Text>
+        </View>
+      </Card>
+      <Card>
+        <View style={styles.imcMessage}>
+          <Text style={styles.imcText2}>Seu IMC está na faixa de: {message} </Text>
         </View>
       </Card>
     </View>

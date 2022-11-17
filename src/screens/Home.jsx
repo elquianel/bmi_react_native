@@ -23,9 +23,28 @@ export function Home({ navigation }) {
       return;
     }
     const result = w / (h * h);
+    const message = defineMessage(result)
 
-    navigation.navigate("Result", { imc: result });
+    navigation.navigate("Result", { imc: result, message: message });
   };
+
+  const defineMessage = (result) => {
+    let message = '';
+
+    if(result >= 40.0){
+      message = "Obesidade grau III"
+    }else if(result >= 35.00){
+      message = "Obesidade grau II"
+    }else if(result >= 25.00){
+      message = "Sobrepeso"
+    }else if(result >= 18.6){
+      message = "Normal"
+    }else{
+      message = "Abaixo do normal"
+    }
+
+    return message
+  }
 
   return (
     <View style={styles.container}>
